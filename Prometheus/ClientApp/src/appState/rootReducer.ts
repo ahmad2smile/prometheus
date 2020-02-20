@@ -1,7 +1,11 @@
-import { combineReducers } from "@reduxjs/toolkit";
+import { combineReducers, ThunkAction, Action } from "@reduxjs/toolkit";
 
-import counterReducer from "../features/counter/counterSlice";
+import jobsSlice from "./jobs/jobsSlice";
 
 export const rootReducer = combineReducers({
-	counter: counterReducer
+	jobsState: jobsSlice
 });
+
+export type AppState = ReturnType<typeof rootReducer>;
+
+export type AppThunk = ThunkAction<void, AppState, null, Action<string>>;
