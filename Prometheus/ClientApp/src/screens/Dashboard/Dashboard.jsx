@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
 import { getJobsThunk } from "../../appState/jobs/fetchJobs";
 import { selectJobs } from "../../appState/jobs/jobsSlice";
 
 const Dashboard = () => {
 	const dispatch = useDispatch();
 	const jobs = useSelector(selectJobs);
-	const [filter, setFilter] = useState({});
+	const [filter, setFilter] = useState({ search: "", location: "Bangkok" });
 
 	useEffect(() => {
 		dispatch(getJobsThunk(filter));

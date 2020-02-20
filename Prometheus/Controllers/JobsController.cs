@@ -18,7 +18,7 @@ namespace Prometheus.Controllers
         }
 
         [HttpGet]
-        public Task<IEnumerable<Job>> Get(Filter filter)
+        public Task<IEnumerable<Job>> Get([FromQuery] Filter filter)
         {
             return _jobsService.GetJobs(filter);
         }

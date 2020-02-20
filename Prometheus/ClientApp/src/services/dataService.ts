@@ -42,5 +42,5 @@ export const getJobs = async (filter: JobFilter): Promise<Array<Job>> => {
 		}
 	);
 
-	return response.data.data;
+	return response.data;
 };
